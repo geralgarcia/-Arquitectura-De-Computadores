@@ -1,0 +1,98 @@
+taller recuperacion parcial
+1. LENGUAJE DE ALTO NIVEL
+
+ int mult (int x, int y){
+ int tem=0;
+ for (int i=0; i<y;, i++){
+ tem+=x;
+  
+  return tem;
+  
+  int main (){
+  int r=1, m=4, c=8;
+  while (c > 0){
+  r= mult t (r,m);
+  c--;
+  
+  return r;
+  
+  
+  2. LENGUAJE BAJO NIVEL
+  
+  X= i0
+  Y= i1
+  tem= %L1
+  r= %L2
+  m= %L3
+  c= %L4
+  
+  mult
+  0X0000  JMPL %07 , 8, %go
+  
+  for
+  0X0004  CMP  %L0, 0
+  0X0008  BNE , a , .LL1
+  0X000C  CMP  %L0, %i1
+  0XOO10  BG  , a , .LL2
+  0X0014  ADD  %L0, 1, %L0
+  0X0018  ADD  %L1, %i0, %L1
+  OX001C  MOV  % L1, O0
+  
+  main
+  0X0020  MOV , 1, %L2
+  0X0024  MOV , 4, %L3
+  0X0028  MOV , 8, %L4
+  
+  while
+  0X002C  CMP  %L4, 0
+  0X0030  BLE , a, .LL3
+  0X0034  CALL mult
+  0X0038  NOP
+  0X003C  SUB , %L4, 1, O1
+  0X0040  BA while
+  0X0044  MOV %L2, 02
+  
+ 3. LENGUAJE DE MAQUINA
+ 
+ FORMATO 3
+OP                RD              OP3         RS1          i                 (ZEROS)         RS2
+10               00000            111000      01111        1                  00000000      01000
+10               00000            010100      10000        1                    0000000000000
+FORMATO 2
+OP                A               COND         OP2                          22 BITS
+00                0               1001         000110                  0000000000000000001011
+FORMATO3   
+OP                RD              OP3         RS1          i                 (ZEROS)         RS2
+10               00000            010100      10000         0                  00000000     11101
+FORMATO 2
+OP                A               COND         OP2                          22 BITS
+00                0               1010        000110                   0000000000000000001001
+FORMATO3   
+OP                RD              OP3         RS1          i                 (ZEROS)       RS2
+10               10000            000000      10000        1                      0000000000001
+10               10001            000000      10001        0               00000000       11100
+10               00000            000010      00000        1               00000000       01000
+10               10001            000010      00000        1                      0000000000001
+10               10011            000010      10001        1               00000000       00100
+10               10100            000010      00000        1               00000000       01000
+10               00000            010100      10100        1                      0000000000000
+FORMATO 2
+OP                A               COND         OP2                          22 BITS
+00                1               0010        00010                   0000000000000000000001
+FORMATO1 
+OP                                         DISP 30
+01               111111111111111111111111110110          (-13)
+FORMATO3   
+OP                RD              OP3         RS1          i                 (ZEROS)       RS2
+10               10001            000100      10100        1                      0000000000001
+FORMATO 2
+OP                A               COND         OP2                          22 BITS
+00                1               1000        00010                    1111111111111111100101
+FORMATO3   
+OP                RD              OP3         RS1          i                 (ZEROS)       RS2
+10               01010            000010      10010        0                      0000000000000
+
+
+  
+  
+  
